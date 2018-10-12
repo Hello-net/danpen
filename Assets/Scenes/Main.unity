@@ -358,7 +358,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 748344977}
-  - component: {fileID: 748344976}
   m_Layer: 0
   m_Name: TextController
   m_TagString: Untagged
@@ -366,25 +365,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &748344976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 748344975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611b56909e85dfb40a35cbda16b96e7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scenarios:
-  - "\u30A6\u30E1\u30CF\u30E9\u304C\u3041\uFF01"
-  - "\u753B\u9762\u7AEF\u3043\uFF01"
-  - "\u30D0\u30FC\u30B9\u30C8\u8AAD\u3093\u3067\uFF01"
-  - "\u307E\u3060\u5165\u308B\u3063\uFF01"
-  - "\u30EC\u30C3\u30C4\u30B4\u30FC\u30B8\u30E3\u30B9\u30C6\u30A3\u30FC\u30FC\u30FC\u30FC\u30FC\u30FC\u30F3!!"
-  uiText: {fileID: 572249003}
-  intervalForCharacterDisplay: 0.05
 --- !u!4 &748344977
 Transform:
   m_ObjectHideFlags: 0
@@ -554,3 +534,31 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1230979996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230979998}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230979998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1230979996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 346.50223, y: 582.5894, z: -9.839459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
