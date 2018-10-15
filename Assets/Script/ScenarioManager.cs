@@ -89,7 +89,7 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
                     m_isCallPreload = true;
                 }
 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonUp(0))
                 {
                     RequestNextLine();
                 }
@@ -97,7 +97,7 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 m_textController.ForceCompleteDisplayText();
             }
