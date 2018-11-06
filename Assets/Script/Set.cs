@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Set : MonoBehaviour {
 
-    GameObject go;
+    public GameObject go;
     float time = 0.0f;
 
 	// Use this for initialization
@@ -19,13 +19,19 @@ public class Set : MonoBehaviour {
         if(time > 3.0f)
         { 
             go.SetActive(true);
+            end();
         }
 
 	}
 
+    void end()
+    {
+        GetComponent<Set>().enabled = false;
+    }
+
     void Awake()
     {
-        go = GameObject.Find("GameMaster");
-        go.SetActive(false);
+        //go = GameObject.Find("GameMaster");
+        //go.SetActive(false);
     }
 }

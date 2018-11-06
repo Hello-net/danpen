@@ -1,23 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class EventChange : MonoBehaviour
 {
-    GameObject SC;
-    private Script SCfn;
+    public GameObject GM;
+    public GameObject GM2;
 
     void Start()
     {
-        SC = GameObject.Find("GameMaster");
-        SCfn = SC.GetComponent<ScenarioManager>();
+
     }
 
-    public void MyPointerDownUI()
+    public void MyPointerUpUI()
     {
-        Debug.Log("押された");
-        SCfn.LoadFileName = prologue;
+        GM.SetActive(false);
+        GM2.SetActive(true);
     }
 
     // Update is called once per frame
