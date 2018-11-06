@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class EventStart : MonoBehaviour
+public class EventStart: MonoBehaviour
 {
 
     public void MyPointerDownUI()

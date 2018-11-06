@@ -72,7 +72,6 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
     {
         m_textController = GetComponent<TextController>();
         m_commandController = GetComponent<CommandController>();
-
         UpdateLines(LoadFileName);
         RequestNextLine();
     }

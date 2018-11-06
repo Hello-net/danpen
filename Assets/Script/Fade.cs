@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Fade : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Fade : MonoBehaviour
     public int fadeTime;
     Color alpha;
     string fadeStart;
+    
+
 
     // Use this for initialization
     void Start()
@@ -31,14 +34,14 @@ public class Fade : MonoBehaviour
         {
             case "FadeIn":
                 alpha.a = 1.0f - (Time.time - startTime) / fadeTime;
-                fadeObj.GetComponent().color = new Color(0, 0, 0, alpha.a);
+                fadeObj.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, alpha.a);
                 break;
             case "FadeOut":
                 alpha.a = (Time.time - startTime) / fadeTime;
-                fadeObj.GetComponent().color = new Color(0, 0, 0, alpha.a);
+                fadeObj.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, alpha.a);
                 break;
         }
-
+        
         if (Input.GetButtonDown("Jump"))
         {
             fadeStart = "FadeOut";
@@ -48,6 +51,7 @@ public class Fade : MonoBehaviour
     }
     public void Load()
     {
-        Application.LoadLevel(Application.loadedLevelName);
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
     }
 }
