@@ -4,15 +4,20 @@ using UnityEngine.SceneManagement;
 
 public class EventStart: MonoBehaviour
 {
+    public GameObject start;
+    public FadeOutImage fade;
+    public float fadesec ;
+
 
     public void MyPointerDownUI()
     {
         Debug.Log("押された");
-        SceneManager.LoadScene("Main");
+        fade.enabled = true;
+        Invoke("Load", fadesec);
     }
 
-    public void MyDragUI()
+    public void Load()
     {
-        transform.position = Input.mousePosition;
+        SceneManager.LoadScene("Main");
     }
 }

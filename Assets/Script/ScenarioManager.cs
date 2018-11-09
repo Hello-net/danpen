@@ -68,7 +68,7 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
 
     #region UNITY_CALLBACK
 
-    void Start()
+    public void Start()
     {
         m_textController = GetComponent<TextController>();
         m_commandController = GetComponent<CommandController>();

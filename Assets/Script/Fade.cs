@@ -7,13 +7,11 @@ public class Fade : MonoBehaviour
 {
 
     GameObject fadeObj;
-
     float startTime;
-
     public int fadeTime;
     Color alpha;
     string fadeStart;
-    
+    public int fadeout = 0;
 
 
     // Use this for initialization
@@ -42,11 +40,12 @@ public class Fade : MonoBehaviour
                 break;
         }
         
-        if (Input.GetButtonDown("Jump"))
+        if (fadeout == 1)
         {
             fadeStart = "FadeOut";
             startTime = Time.time;
             Invoke("Load", 1.5f);
+            fadeout = 0;
         }
     }
     public void Load()
