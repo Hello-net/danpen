@@ -217,7 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 3
-  fadeout: 0
+  fadeout: 3
+  loadscean: prologue
 --- !u!212 &749728522
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -738,7 +739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 1765007132}
   fade: {fileID: 1765007138}
-  fadesec: 1.5
+  fadesec: 1
+  FadeScript: {fileID: 749728521}
 --- !u!114 &1765007138
 MonoBehaviour:
   m_ObjectHideFlags: 0

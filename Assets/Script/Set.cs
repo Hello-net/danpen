@@ -5,7 +5,13 @@ using UnityEngine;
 public class Set : MonoBehaviour {
 
     public GameObject go;
+    public FadeText fadetext;
+    public float intime = 0;
+    public float intime2 = 0;
     float time = 0.0f;
+    bool flag = true ;
+    
+
 
 	// Use this for initialization
 	void Start () {
@@ -14,9 +20,13 @@ public class Set : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //go = GameObject.Find("GameMaster");
         time = time + Time.deltaTime;
-        if(time > 3.0f)
+        if (time > intime && flag)
+        {
+            fadetext.enabled = true;
+            flag = false;
+        }
+        if (time > intime2)
         { 
             go.SetActive(true);
             end();
@@ -27,11 +37,5 @@ public class Set : MonoBehaviour {
     void end()
     {
         GetComponent<Set>().enabled = false;
-    }
-
-    void Awake()
-    {
-        //go = GameObject.Find("GameMaster");
-        //go.SetActive(false);
     }
 }

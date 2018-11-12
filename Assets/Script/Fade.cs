@@ -12,6 +12,7 @@ public class Fade : MonoBehaviour
     Color alpha;
     string fadeStart;
     public int fadeout = 0;
+    public string loadscean;
 
 
     // Use this for initialization
@@ -44,13 +45,13 @@ public class Fade : MonoBehaviour
         {
             fadeStart = "FadeOut";
             startTime = Time.time;
-            Invoke("Load", 1.5f);
+            Invoke("Load", 3f);
             fadeout = 0;
         }
     }
     public void Load()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneName);
+        //string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(loadscean);
     }
 }

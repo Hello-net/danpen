@@ -16,7 +16,7 @@ public class FadeOutImage : MonoBehaviour {
 	// Update is called once per frame
 	public void Update () {
         alpha.a = alpha.a <= 0 ? 1 : alpha.a - 0.01f;
-        Debug.Log(alpha.a);
+        //Debug.Log(alpha.a);
         fadeObj.GetComponent<Image>().color = new Color(255,255,255,alpha.a);
         if(alpha.a < 0)
         {

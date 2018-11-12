@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class EventStart: MonoBehaviour
 {
     public GameObject start;
     public FadeOutImage fade;
     public float fadesec ;
+    public Fade FadeScript;
 
 
     public void MyPointerDownUI()
@@ -18,6 +18,6 @@ public class EventStart: MonoBehaviour
 
     public void Load()
     {
-        SceneManager.LoadScene("Main");
+        FadeScript.fadeout = 1;
     }
 }
