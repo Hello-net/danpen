@@ -8,16 +8,23 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
 {
 
     public string LoadFileName;
+    [SerializeField]
+    private GameObject soul;
 
     private string[] m_scenarios;
     private int m_currentLine = 0;
     private bool m_isCallPreload = false;
-
+    [SerializeField]
+    private Blinker blinker;
     private TextController m_textController;
     private CommandController m_commandController;
+    private Renderer renderComponent;
+    
 
     void RequestNextLine()
     {
+        //renderComponent.enabled = false;
+        soul.SetActive(false);
         var currentText = m_scenarios[m_currentLine];
 
         m_textController.SetNextLine(CommandProcess(currentText));
@@ -72,6 +79,7 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
     {
         m_textController = GetComponent<TextController>();
         m_commandController = GetComponent<CommandController>();
+        renderComponent = soul.GetComponent<Renderer>();
         UpdateLines(LoadFileName);
         RequestNextLine();
     }
@@ -80,7 +88,7 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
     {
         if (m_textController.IsCompleteDisplayText)
         {
-            
+            soul.SetActive(true);
             if (m_currentLine < m_scenarios.Length)
             {
                 if (!m_isCallPreload)

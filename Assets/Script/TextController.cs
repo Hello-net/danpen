@@ -14,6 +14,9 @@ public class TextController : MonoBehaviour
     private float timeUntilDisplay = 0;
     private float timeElapsed = 1;
     private int lastUpdateCharacter = -1;
+    [SerializeField]
+    private GameObject soul;
+    private Blinker blinker;
 
     [SerializeField]
     private Text _uiText;
@@ -26,6 +29,7 @@ public class TextController : MonoBehaviour
     // 強制的に全文表示する
     public void ForceCompleteDisplayText()
     {
+        soul.SetActive(true);
         timeUntilDisplay = 0;
     }
 
