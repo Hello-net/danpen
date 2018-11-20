@@ -5,7 +5,7 @@ public class Blinker : MonoBehaviour
 {
     public float nextTime;
     public float interval = 1.0f;   // 点滅周期
-    //public bool on;
+    public bool on;
     // Use this for initialization
     void Start()
     {
@@ -15,7 +15,12 @@ public class Blinker : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {     
+    {
+        if (on)
+        {
+            nextTime = Time.time;
+            on = false;
+        }
         if (Time.time > nextTime)
         {
             var renderComponent = GetComponent<Renderer>();

@@ -8,10 +8,6 @@ public class EventChange : MonoBehaviour
     [SerializeField] private ScenarioManager smScript;
     public string filename = "prologue";
 
-    void Start()
-    {
-
-    }
 
     public void MyPointerUpUI()
     {
@@ -20,11 +16,6 @@ public class EventChange : MonoBehaviour
         Invoke("Load", 1.0f);
 
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 
     void Load()
     {

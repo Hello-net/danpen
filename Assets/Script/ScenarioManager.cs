@@ -23,7 +23,8 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
 
     void RequestNextLine()
     {
-        //renderComponent.enabled = false;
+        renderComponent.enabled = false;
+        blinker.on = true;
         soul.SetActive(false);
         var currentText = m_scenarios[m_currentLine];
 

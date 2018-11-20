@@ -14,9 +14,9 @@ public class TextController : MonoBehaviour
     private float timeUntilDisplay = 0;
     private float timeElapsed = 1;
     private int lastUpdateCharacter = -1;
+
     [SerializeField]
     private GameObject soul;
-    private Blinker blinker;
 
     [SerializeField]
     private Text _uiText;
