@@ -990,7 +990,7 @@ MonoBehaviour:
   Layer: {fileID: 1535190461}
   AMscript: {fileID: 1999832210}
   audioName: Bomb
-  SEvolume: 0.01
+  SEvolume: 0.5
   BGMvolume: 0.5
 --- !u!114 &1535190464
 MonoBehaviour:
