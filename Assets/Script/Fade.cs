@@ -12,7 +12,7 @@ public class Fade : MonoBehaviour
     Color alpha;
     string fadeStart;
     public int fadeout = 0;
-    public string loadscean;
+    public string loadscean ;
 
 
     // Use this for initialization

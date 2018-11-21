@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class EventCon : MonoBehaviour
 {
+    public string SceaneName;
+    [SerializeField]
+    private Fade fade;
 
     public void MyPointerUpUI()
     {
-        Debug.Log("押された");
-        SceneManager.LoadScene("Main");
+        fade.loadscean = SceaneName;
+        fade.fadeout = 1;
     }
 }

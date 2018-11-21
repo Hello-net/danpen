@@ -16,8 +16,7 @@ public class Set : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //AudioManager.Instance.PlayBGM(AUDIO.BGM_YOU);
-        //AMscript.ChangeVolume(0.02f,1f);
+    
     }
 
     // Update is called once per frame
