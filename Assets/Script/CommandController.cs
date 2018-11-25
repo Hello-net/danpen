@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 // コマンド制御
 public class CommandController : SingletonMonoBehaviourFast<CommandController>
@@ -15,6 +16,17 @@ public class CommandController : SingletonMonoBehaviourFast<CommandController>
 
     // 文字の表示が完了したタイミングで呼ばれる処理
     private List<IPreCommand> m_preCommandList = new List<IPreCommand>();
+
+    public void PreScenario(string scenario)
+    {
+        var lineReader = new StringReader(scenario);
+        var text = string.Empty;
+        while ((text = lineReader.ReadLine()) != null)
+        {
+            text = text.Trim();
+            PreloadCommand(text);
+        }
+    }
 
     public void PreloadCommand(string line)
     {

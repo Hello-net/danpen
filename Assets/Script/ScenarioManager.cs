@@ -94,7 +94,7 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
             {
                 if (!m_isCallPreload)
                 {
-                    m_commandController.PreloadCommand(m_scenarios[m_currentLine]);
+                    m_commandController.PreScenario(m_scenarios[m_currentLine]);
                     m_isCallPreload = true;
                 }
 
