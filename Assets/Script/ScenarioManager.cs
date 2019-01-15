@@ -7,6 +7,27 @@ using System.Text;
 public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
 {
 
+    private enum TAP_STATUS
+    {
+        NONE = -1,
+
+        UP = 0,
+        Began,
+        Ended,
+    };
+
+    private TAP_STATUS tapStatus = TAP_STATUS.UP;
+    private TAP_STATUS tapStatusNext = TAP_STATUS.NONE;
+
+    public int x = 0;
+    public int y = 0;
+    public int w = 0;
+    public int h = 0;
+
+    
+
+    bool tap;
+
     public string LoadFileName;
     [SerializeField]
     private GameObject soul;
@@ -87,7 +108,65 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
 
     void Update()
     {
-        if (m_textController.IsCompleteDisplayText)
+        switch (tapStatus)
+        {
+            case TAP_STATUS.UP:
+                
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log(Input.mousePosition);
+                     
+                    Rect rect = new Rect(x, y, w, h);
+                    bool contain = rect.Contains(Input.mousePosition);
+                    Debug.Log(rect);
+
+                    if (contain)
+                        {
+                            tapStatusNext = TAP_STATUS.Began;
+                        }
+                   
+                }
+
+                break;
+
+            case TAP_STATUS.Began:
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    tapStatusNext = TAP_STATUS.Ended;
+                }
+                break;
+
+            case TAP_STATUS.Ended:
+
+                tapStatusNext = TAP_STATUS.UP;
+
+                break;
+        }
+
+        while (tapStatusNext != TAP_STATUS.NONE)
+        {
+            tapStatus = tapStatusNext;
+            tapStatusNext = TAP_STATUS.NONE;
+
+            switch (tapStatus)
+            {
+                case TAP_STATUS.Began:
+
+                    break;
+
+                case TAP_STATUS.Ended:
+
+                    Debug.Log("離れた");
+                    tap = true;
+
+                    break;
+            }
+        }
+
+
+
+            if (m_textController.IsCompleteDisplayText)
         {
             soul.SetActive(true);
             if (m_currentLine < m_scenarios.Length)
@@ -98,20 +177,38 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
                     m_isCallPreload = true;
                 }
 
-                if (Input.GetMouseButtonUp(0))
+                if (tap)
                 {
+                    tap = false;
                     RequestNextLine();
                 }
             }
         }
         else
         {
-            if (Input.GetMouseButtonUp(0))
+            if (tap)
             {
+                tap = false;
                 m_textController.ForceCompleteDisplayText();
             }
         }
+
     }
+
+    //bool foundFingerId()
+    //{
+    //    bool ret = false;
+
+    //    if (Input.touchCount > 0)
+    //    {
+    //        foreach (Touch touch in Input.touches)
+    //        {
+    //            if (touch.fingerId == 0) ret = true;
+    //        }
+    //    }
+
+    //    return ret;
+    //}
 
     #endregion
 }

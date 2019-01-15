@@ -50,7 +50,7 @@ public class AudioManager : SingletonMonoBehaviourFast<AudioManager>
             return;
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
 
         //オーディオリスナーおよびオーディオソースをSE+1(BGMの分)作成
         gameObject.AddComponent<AudioListener>();
