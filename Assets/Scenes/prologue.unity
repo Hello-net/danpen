@@ -2152,10 +2152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc08c61d5aeb604ca2750b824b9f470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  w: 405
-  h: 320
+  x: -365
+  y: -640
+  w: 730
+  h: 550
   LoadFileName: prologue
   soul: {fileID: 1454618070}
   blinker: {fileID: 1454618071}

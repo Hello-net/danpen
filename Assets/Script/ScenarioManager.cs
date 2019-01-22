@@ -114,11 +114,14 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
                 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log(Input.mousePosition);
-                     
+                    // マウスの座標はスクリーン座標で　Unityのオブジェクトはワールド座標なので変換する
+                    Vector2 position = Input.mousePosition;
+                    Vector2 screenToWorldPointPosition = Camera.main.ScreenToWorldPoint(position);
+                    // 対象のキャンバスがCanvas Scalerのため拡大率が変わっているため、取得した座標を拡大する
+                    screenToWorldPointPosition *= 1f / GameObject.Find("Canvas").transform.localScale.x;
                     Rect rect = new Rect(x, y, w, h);
-                    bool contain = rect.Contains(Input.mousePosition);
-                    Debug.Log(rect);
+                    bool contain = rect.Contains(screenToWorldPointPosition);
+                    //　Debug.Log(screenToWorldPointPosition);
 
                     if (contain)
                         {
@@ -157,7 +160,6 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
 
                 case TAP_STATUS.Ended:
 
-                    Debug.Log("離れた");
                     tap = true;
 
                     break;
@@ -194,21 +196,6 @@ public class ScenarioManager : SingletonMonoBehaviourFast<ScenarioManager>
         }
 
     }
-
-    //bool foundFingerId()
-    //{
-    //    bool ret = false;
-
-    //    if (Input.touchCount > 0)
-    //    {
-    //        foreach (Touch touch in Input.touches)
-    //        {
-    //            if (touch.fingerId == 0) ret = true;
-    //        }
-    //    }
-
-    //    return ret;
-    //}
 
     #endregion
 }
